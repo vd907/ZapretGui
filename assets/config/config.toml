@@ -1,0 +1,54 @@
+# assets/config/config.toml
+[app]
+version = "0.0.1"
+
+[window]
+title = "App"
+width = 500
+height = 350
+x = 500
+y = 300
+
+[fonts]
+family = "Arial"
+size = 12
+
+[scale]
+factor = 1.0
+
+[features]
+auto_save = true
+language = "ru"
+recent_files_count = 5
+
+[side_menu]
+width_expanded = 200
+width_collapsed = 50
+icon_size = 24
+button_size = 40
+border_radius = 8
+spacing = 2
+margin_left = 5
+
+[settings]
+icon_size = 20
+button_size = 40
+
+[power_button]
+icon_size = 64
+button_size = 80
+
+[opengl]
+enabled = true
+auto_detect = true
+version_major = 3
+version_minor = 3
+profile = "compatibility"
+use_vsync = false
+swap_interval = 0
+use_msaa = true
+samples = 2
+anisotropic_level = 4
+double_buffer = true
+depth_buffer_size = 24
+stencil_buffer_size = 8

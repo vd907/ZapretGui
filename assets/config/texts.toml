@@ -1,0 +1,17 @@
+# assets/config/texts.toml
+[status]
+stopped = "Остановлено"
+running = "Запущено"
+
+[power_button]
+start_tooltip = "Запустить"
+stop_tooltip = "Остановить"
+
+[menu]
+toggle_tooltip = "Меню"
+settings_tooltip = "Настройки"
+
+[settings]
+window_title = "Настройки"
+page_title = "Настройки"
+back_button = "Назад"

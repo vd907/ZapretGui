@@ -1,0 +1,40 @@
+/* assets/styles/style.qss */
+QMainWindow {
+    background-color: #fafafa;
+}
+
+#contentArea {
+    background-color: #ffffff;
+}
+
+#mainPage {
+    background-color: #ffffff;
+}
+
+#statusLabel {
+    font-size: 14px;
+    color: #f44336;
+    padding: 10px;
+}
+
+#settingsPage {
+    background-color: #ffffff;
+}
+
+#pageTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+#backButton {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#backButton:hover {
+    background-color: #bdbdbd;
+}
