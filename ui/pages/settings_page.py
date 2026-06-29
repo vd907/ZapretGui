@@ -1,4 +1,6 @@
-# ui/widgets/pages/settings_page.py
+# ============================================================
+# ui/pages/settings_page.py (добавить флаг)
+# ============================================================
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton
 from PySide6.QtCore import Qt
 from core.config_loader import ConfigLoader
@@ -10,6 +12,7 @@ class SettingsPage(QWidget):
         super().__init__(parent, Qt.Window)
         self.setObjectName("settingsPage")
         self.setAttribute(Qt.WA_DeleteOnClose)
+        self.setWindowFlags(Qt.Window | Qt.WindowStaysOnTopHint)
         self._setup_ui()
 
     def _setup_ui(self):

@@ -1,9 +1,12 @@
+# ============================================================
 # ui/mainwindow/main_window.py
+# ============================================================
 from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QStackedWidget, QApplication
 from PySide6.QtGui import QFont
 from core.config_loader import ConfigLoader
-from ui.widgets.side_menu.side_menu import SideMenu
-from ui.widgets.pages.main_page import MainPage
+from ui.widgets.side_menu import SideMenu
+from ui.pages.main_page import MainPage
+from ui.pages.settings_page import SettingsPage
 
 
 class MainWindow(QMainWindow):
@@ -37,6 +40,10 @@ class MainWindow(QMainWindow):
         self._main_page = MainPage()
         self._main_page.set_power_callback(self._on_power_toggle)
         self._stack.addWidget(self._main_page)
+
+        self._settings_page = SettingsPage()
+        self._stack.addWidget(self._settings_page)
+
         layout.addWidget(self._stack)
 
         self._menu = SideMenu(switch_callback=self._switch_page)
@@ -53,6 +60,8 @@ class MainWindow(QMainWindow):
         self._main_page.update_status(self._main_page.toggle_power())
 
     def _switch_page(self, index: int):
-        while self._stack.count() <= index:
-            self._stack.addWidget(QWidget())
         self._stack.setCurrentIndex(index)
+        if index == 1:
+            self._menu.hide()
+        else:
+            self._menu.show()

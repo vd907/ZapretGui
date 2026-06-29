@@ -1,14 +1,16 @@
-# ui/widgets/side_menu/side_menu.py
+# ============================================================
+# ui/widgets/side_menu.py
+# ============================================================
 from pathlib import Path
 from PySide6.QtWidgets import QFrame, QVBoxLayout, QPushButton, QWidget, QHBoxLayout, QLabel
 from PySide6.QtCore import QSize, Qt, Signal, QPropertyAnimation, QEasingCurve
 from PySide6.QtGui import QIcon
 from core.config_loader import ConfigLoader
-from ui.animations.side_menu import SideMenuAnimation
+from ui.animations.animation_side_menu import SideMenuAnimation
 
 
 class SideMenu(QFrame):
-    ICONS = Path(__file__).parent.parent.parent.parent / "assets" / "icons"
+    ICONS = Path(__file__).parent.parent.parent / "assets" / "icons"
     expanded_changed = Signal(bool)
 
     def __init__(self, switch_callback=None, parent=None):
@@ -145,13 +147,15 @@ class SideMenu(QFrame):
 
     def _open_settings(self):
         if self._settings_page is None:
-            from ui.widgets.pages.settings_page import SettingsPage
+            from ui.pages.settings_page import SettingsPage
             self._settings_page = SettingsPage()
             self._settings_page.setWindowTitle(ConfigLoader.get_text("settings", "window_title"))
             self._settings_page.resize(400, 300)
             self._settings_page.setAttribute(Qt.WA_DeleteOnClose)
             self._settings_page.destroyed.connect(lambda: setattr(self, '_settings_page', None))
         self._settings_page.show()
+        self._settings_page.raise_()
+        self._settings_page.activateWindow()
 
     def _icon_path(self) -> Path:
         return self.ICONS / ("menu.svg" if self._expanded else "arrow.svg")

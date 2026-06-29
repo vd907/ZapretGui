@@ -1,4 +1,6 @@
-# ui/widgets/pages/main_page.py
+# ============================================================
+# ui/pages/main_page.py
+# ============================================================
 from pathlib import Path
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
 from PySide6.QtCore import QSize, Qt
@@ -8,7 +10,7 @@ from ui.widgets.power_button import PowerButton
 
 
 class MainPage(QWidget):
-    ICONS = Path(__file__).parent.parent.parent.parent / "assets" / "icons"
+    ICONS = Path(__file__).parent.parent.parent / "assets" / "icons"
 
     def __init__(self, parent=None):
         super().__init__(parent)
